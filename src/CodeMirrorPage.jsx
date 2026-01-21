@@ -12,7 +12,7 @@ const CodeMirrorPage = () => {
 `//Begin your codes from here.
 #include <stdio.h>
 int main(){
-    printf("hello world!");
+    printf("hello world!\\n");
     return 0;
 }`
     );
@@ -21,7 +21,10 @@ int main(){
         try{
             const response = await axios.post(
                 'http://localhost:5000/api/post-c-code',
-                {content: code}
+                {
+                    userId: 'vegird',
+                    content: code
+                }
             );
             console.log(JSON.stringify(response.data, null, 2));
         } catch (err) {
