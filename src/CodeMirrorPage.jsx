@@ -12,7 +12,7 @@ const CodeMirrorPage = () => {
 `//Begin your codes from here.
 #include <stdio.h>
 int main(){
-    printf("hello world!");
+    printf("hello world!\\n");
     return 0;
 }`
     );
