@@ -21,7 +21,10 @@ int main(){
         try{
             const response = await axios.post(
                 import.meta.env.VITE_API_BASE_URL+'/post-c-code',
-                {content: code}
+                {
+                    userId: 'vegird',
+                    content: code
+                }
             );
             console.log(JSON.stringify(response.data, null, 2));
         } catch (err) {
