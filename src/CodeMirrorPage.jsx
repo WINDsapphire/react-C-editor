@@ -12,7 +12,7 @@ const CodeMirrorPage = () => {
 `//Begin your codes from here.
 #include <stdio.h>
 int main(){
-    printf("hello world!\\n");
+    printf("hello world!");
     return 0;
 }`
     );
@@ -20,11 +20,8 @@ int main(){
     const postCodes = async() => {
         try{
             const response = await axios.post(
-                'http://localhost:5000/api/post-c-code',
-                {
-                    userId: 'vegird',
-                    content: code
-                }
+                import.meta.env.VITE_API_BASE_URL+'/post-c-code',
+                {content: code}
             );
             console.log(JSON.stringify(response.data, null, 2));
         } catch (err) {
@@ -46,7 +43,7 @@ int main(){
 
         try{
             // 发送axios请求
-            const response = await axios.get('http://localhost:5000/api/hello');
+            const response = await axios.get(import.meta.env.VITE_API_BASE_URL + '/hello');
             setMessage(response.data.message);
         } catch (err) {
             setError('请求失败：' + (err.response?.data?.message || err.message));
